@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <link href="{% static 'css/bootstrap.min.css' %}">#}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+<div>
+    {%if user.is_authenticated%}
+        <div id="display_something">Hello {{ user }}</div>
+    {% else %}
+        <p>Please Log in</p>
+    {% endif %}
+</div>
+
+
+<div class="container">
+
+    {% include 'layouts/my_admin_header.html' %}
+
+    {% block content%}
+    {% endblock %}
+</div>
+{#<div class="col-lg-8">#}
+{#<div class="col-lg-4 m-2">#}
+{#col-lg-8 offset-lg-8#}
+
+
+
+
+
+
+{#<div>#}
+{#    <ul style="list-style: none">#}
+{#        {% for i in data %}#}
+{#            <li style="font-size: 20px">#}
+{#                <a href="/product/{{ i.pk }}/" style="text-decoration: none">{{ i.brand_name }}</a> | {{ i.serial_number }} | {{ i.created_at }}|#}
+{#                <a href="/product/{{ i.pk }}/update">Edit</a>|#}
+{#                <a onclick="return confirm('Are you sure ?')" href="/product/{{ i.pk }}/delete">Delete</a></li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#</div>#}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.css' %}"></script>
+
+</body>
+</html>
+

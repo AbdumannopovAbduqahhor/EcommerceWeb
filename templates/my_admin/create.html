@@ -1,0 +1,25 @@
+{% extends 'layouts/my_admin_base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="col-lg-6 offset-lg-3">
+        <form method="post" enctype="multipart/form-data">
+            {%  csrf_token  %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label }} : {{ field|add_class:'form_control' }}
+                </div>
+            {% endfor %}
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+{#<form>#}
+{#    {% if user.is_not_authenticated %}#}
+{#        <div id="display_something">Please Log in</div>#}
+{#    {% endif %}#}
+{#</form>#}

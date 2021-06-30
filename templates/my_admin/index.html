@@ -1,0 +1,37 @@
+{% extends 'layouts/my_admin_base.html' %}
+{% load admin_tags %}
+{% block content %}
+
+<div class="container">
+    <table  class="table table-bordered">
+        <tr>
+            <th>Brand Name</th>
+            <th>Serial Number</th>
+            <th>Created date</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    {% for i in object_list %}
+    <tr>
+        <td>{{ i.brand_name| to_upper }}</td>
+        <td>{{ i.serial_number }}</td>
+        <td>{{ i.created_at }}</td>
+        <td></td>
+        <td>
+            <div class="d-flex justify-content-around">
+                <a href="/product/{{ i.pk }}/"><i class="fa fa-eye"></i></a>
+                <a href="/product/{{ i.pk }}/update"><i class="fa fa-pencil text-info"></i></a>
+                <form onsubmit="return confirm('Are you sure ?')" method="post" action="/product/{{ i.pk }}/delete">
+                    {% csrf_token %}
+                    <button style="border: none; background-color: white"type="submit">
+                        <i class="fa fa-trash text-danger"></i>
+                    </button>
+
+                </form>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

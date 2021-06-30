@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form>
+        <div class="row">
+            <div class="d-flex form-inline col-lg-5 offset-lg-7">
+                    <div class="col-lg-5 m-3 w-45">
+                        <input class="form-control" value="{{ request.GET.q }}" type="text" name="q">
+                    </div>
+                    <div class="col-lg-7 m-3  w-120">
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                        <a href="/product/create/">
+                            <button class="btn btn-success" type="button">Create</button>
+                        </a>
+                        <a href="/admin/logout/">
+                            <button class="btn btn-warning" type="button">Logout</button>
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
